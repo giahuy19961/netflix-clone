@@ -8,11 +8,11 @@ import NavbarHeader from '../../../../Components/NavbarHome'
 function HomePage() {
     let [activeMovie,setActiveMovie] = useState({})
     let [loadingBanner,setLoading] = useState(false)
-   
 
   
     const getActiveMovie = (item) =>{
         setActiveMovie(item)
+
     }
     
     useEffect(() => {

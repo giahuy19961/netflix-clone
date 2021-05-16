@@ -9,7 +9,12 @@ const requests ={
     fetchComedyMovies:`/discover/movie?api_key=${API_KEY}&with_genres=35`,
     fetchHorrorMovies:`/discover/movie?api_key=${API_KEY}&with_genres=27`,
     fetchRomanceMovie:`/discover/movie?api_key=${API_KEY}&with_genres=10749`,
-    fetchDocumentaries:`/discover/movie?api_key=${API_KEY}&with_genres=99`
+    fetchDocumentaries:`/discover/movie?api_key=${API_KEY}&with_genres=99`,
+    
 }
-
+export const requestsById = (id)=>{
+    return {
+        fetchTrailer:`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`
+    }
+}
 export default requests

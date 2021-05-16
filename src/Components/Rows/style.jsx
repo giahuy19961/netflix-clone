@@ -59,3 +59,19 @@ export const PlaytrailerBtn = styled.div`
      border:1px solid #fff;
      border-radius:50%;
 `
+export const TrailerContainer = styled.div`
+   position:relative;
+   max-height:400px;
+   width:80%;
+   margin:auto;
+   overflow:hidden;
+   transform: all ease 1s;
+   
+`
+export const TrailerMedia = styled.video`
+   position:absolute;
+   top:0;
+   left:0;
+   width:400px;
+
+`
