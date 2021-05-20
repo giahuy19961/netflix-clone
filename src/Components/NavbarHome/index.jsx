@@ -1,8 +1,9 @@
 import React,{useEffect, useState} from 'react'
 import { NavItem, NavLogo, NavMenu, NavWrap } from './style'
 import logo from '../../img/netflix.svg'
+import { Button } from '@material-ui/core'
 
-function NavbarHeader() {
+function NavbarHeader({menuList}) {
     let [isChange,setChange] = useState(false)
 
   function setPage() {
@@ -13,7 +14,19 @@ function NavbarHeader() {
     }
     // console.log(window.pageYOffset)
   }
-  
+  function renderMenuNav(){
+    return menuList.map((item,index)=>{
+        if(item.type === "button"){
+          return(
+              <Button style={{textTransform:"none",marginRight:"20px",fontSize:"1rem"  }} size="medium" variant="contained" color="secondary" key={index}>{item.name}</Button>
+          )
+        } else{
+          return (
+           <NavItem key={index}>{item.name}</NavItem>
+          )
+        }
+     })
+  }
 
   useEffect(() => {
     function watchScroll() {
@@ -36,10 +49,7 @@ function NavbarHeader() {
       }} >
             <NavLogo src={logo}/>
             <NavMenu>
-              <NavItem>Trang Chủ</NavItem>
-              <NavItem>Phim TH</NavItem>
-              <NavItem>Phim</NavItem>
-              <NavItem>Mới thêm</NavItem>
+              {renderMenuNav()}
             </NavMenu>
         </NavWrap>
     )

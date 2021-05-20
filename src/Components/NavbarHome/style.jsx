@@ -24,13 +24,22 @@ export const NavMenu = styled.ul`
     padding:25px 0;
     margin:0;
     display:flex;
-    justify-content:space-around;
+    justify-content:flex-end;
     min-width:500px;
+    @media (max-width:600px){
+
+        min-width:380px;
+    }
+    
 
 `
 export  const NavItem = styled.li`
    padding:0;
-   margin:0;
+   margin-right:40px;
    list-style:none;
+   align-self:center;
+   @media (max-width:830px){
+       margin-right:20px;
+   }
 
 `

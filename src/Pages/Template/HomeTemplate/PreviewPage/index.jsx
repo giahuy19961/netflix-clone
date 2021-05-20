@@ -1,11 +1,22 @@
 import React from 'react'
 import Jumbletron from 'Components/Jumbletron'
 import {Jumbledata} from 'json/jumbletron.json'
+import NavbarHeader from 'Components/NavbarHome'
+import BannerPreview from 'Components/BannerPreview'
+import Footer from 'Components/Footer'
+import According from 'Components/According'
 
 
 function PreviewPage() {
     // let JumbleData = json.parse(data)
+    const listItemNav = [{
+        name:"Sign In",
+        type:"button"
+    }]
     return (
+        <>
+        <NavbarHeader menuList ={listItemNav}/>
+        <BannerPreview/>
         <Jumbletron.Container>
             {Jumbledata.map((item,index)=>{
                 return (
@@ -21,6 +32,9 @@ function PreviewPage() {
                 )
             })}
         </Jumbletron.Container>
+        <According/>
+        <Footer/>
+        </>
     )
 }
 

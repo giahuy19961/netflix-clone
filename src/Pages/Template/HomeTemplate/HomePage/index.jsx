@@ -4,17 +4,37 @@ import Banner from '../../../../Components/Banner'
 import Rows from '../../../../Components/Rows'
 import requests from '../../../../request'
 import NavbarHeader from '../../../../Components/NavbarHome'
+import Modal from 'Components/Modal'
 
 function HomePage() {
     let [activeMovie,setActiveMovie] = useState({})
     let [loadingBanner,setLoading] = useState(false)
+    const listItemNav = [{
+        name:"Home",
+        type:"text"
+    },
+    {
+        name:"Popular",
+        type:"text"
+    },
+    {
+        name:"My List",
+        type:"text"
+    },
+    {
+        name:"Sign Out",
+        type:"button"
+    },
 
+    ]
   
     const getActiveMovie = (item) =>{
         setActiveMovie(item)
 
     }
-    
+    const renderMovie = (url) =>{
+        return <Modal trailer = {url}/>
+    }
     useEffect(() => {
         const fetchActiveMovieDefault = async () =>{
           const active =  await axios({
@@ -30,11 +50,10 @@ function HomePage() {
     }, [])
     
 
-    console.log(activeMovie)
     return (
         <div >
-            <NavbarHeader  />
-            <Banner activeMovie={activeMovie} loading = {loadingBanner}/>
+            <NavbarHeader menuList={listItemNav}  />
+            <Banner activeMovie={activeMovie}  renderMovie={renderMovie} loading = {loadingBanner}/>
             <Rows title="Netflix Original" urlNetflix={requests.fetchNetflixOriginals} getActiveMovie={getActiveMovie} isLarge={true}/>
             <Rows title="Top Rate" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchTopRated} isLarge={false}/>
             <Rows title="Action Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchActionMovies} isLarge={false}/>
@@ -42,6 +61,7 @@ function HomePage() {
             <Rows title="Horror Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchHorrorMovies} isLarge={false}/>
             <Rows title="Romance Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchRomanceMovie} isLarge={false}/>
             <Rows title="Documentaries" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchDocumentaries} isLarge={false}/>
+            {renderMovie()}
         </div>
     )
 }

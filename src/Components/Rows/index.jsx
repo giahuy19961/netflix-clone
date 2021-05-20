@@ -1,16 +1,22 @@
 import React,{useState,useEffect} from 'react'
 import {Header,List,Image, Wrap, ImageLarge, TrailerContainer, TrailerMedia} from './style'
 import axios from 'axios'
+import {requestsById} from '../../request'
 import Trailer from '../Trailer'
 
 function Rows({title,urlNetflix,isLarge,getActiveMovie}) {
     let [movie,setMovie]= useState([])
-    let [trailer,setTrailer] = useState(null)
+    let [trailer,setTrailer] = useState("")
+    let [url,setUrl] = useState(null)
     const url_img = "https://image.tmdb.org/t/p/original/"
-    // console.log(`https://api.themoviedb.org/3${urlNetflix}`)
     const handleClick = (item) =>{
-         getActiveMovie(item)
-         setTrailer(item)
+        if(trailer && item === trailer){
+            setTrailer("")
+        } else{
+            getActiveMovie(item)
+            setTrailer(item)
+        }
+        
     }
     const renderListMovie = ()=>{
         return movie?.map((item,index)=>{
@@ -23,6 +29,22 @@ function Rows({title,urlNetflix,isLarge,getActiveMovie}) {
 
         })
     }
+  
+    useEffect(() => {
+        let trailerurl = requestsById(trailer.id).fetchTrailer
+        const  fetchTrailer = async ()=>{
+             axios({
+                url:`https://api.themoviedb.org/3${trailerurl}`,
+                method:"GET",
+            }).then((res)=>{
+                setUrl(`https://www.youtube.com/watch?v=${res.data.results[0].key}`)
+            }).catch((err)=>{
+                console.log(err)
+            })
+        }
+
+        fetchTrailer()
+    }, [trailer])
     useEffect(()=>{
        const fetchUrlMovie = () =>{
            axios({
@@ -37,7 +59,6 @@ function Rows({title,urlNetflix,isLarge,getActiveMovie}) {
        }
        fetchUrlMovie()
     },[])
-    console.log(trailer)
     return (
         <Wrap>
         <Header className="listMovie_title">{title}</Header>
@@ -46,7 +67,7 @@ function Rows({title,urlNetflix,isLarge,getActiveMovie}) {
         </List>
         <TrailerContainer>
             {/* <TrailerMedia/> */}
-            {trailer !== null?<Trailer trailer={trailer}/>:<></>}
+            {url !== null && trailer ?<Trailer url={url}/>:<></>}
         </TrailerContainer>
         </Wrap>
     )

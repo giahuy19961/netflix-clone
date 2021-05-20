@@ -26,10 +26,22 @@ export const IntroContent= styled.div`
 export const IntroHeader =styled.h2`
    color :#fff;
    font-size:3rem;
+   @media (max-width:600px){
+       font-size:2.2rem;
+   }
 `
 export const IntroTitle = styled.p`
    font-size:1.5rem;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
    color :#fff;
+   max-height:110px;
+   @media (max-width:600px){
+    font-size:1.2rem;
+}
 `
 
 export const IntroButton = styled.button`
@@ -66,20 +78,5 @@ export const IntroContainerItem = styled.div`
 export const IntroContainerHeader = styled.h3`
      font-size:3rem;
      color:#fff;
-
-`
-export const IntroContainerDetail = styled.p`
-     font-size:2rem;
-     color:#fff;
-     
-   
- 
-`
-
-export const IntroContainerMedia = styled.img`
-   max-width: 100%;
-   height: auto;
-   border: 0;
-      
 
 `

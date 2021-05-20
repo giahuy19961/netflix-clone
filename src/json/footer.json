@@ -1,0 +1,80 @@
+{
+    "footerData":[
+        {
+            "id":1,
+            "title":"FAQ",  
+            "url":"https://help.netflix.com/vi/node/412"
+        },
+        {
+            "id":2,
+            "title":"Help Center",
+            "url":"https://help.netflix.com/vi/"
+        },
+        {
+            "id":3,
+            "title":"Account",
+            "url":"https://www.netflix.com/vn-en/login?nextpage=https%3A%2F%2Fwww.netflix.com%2Fyouraccount"
+        },
+        {
+            "id":4,
+            "title":"Media Center",
+            "url":"https://media.netflix.com/en/"
+        },
+        {
+            "id":5,
+            "title":"Investor Relations",  
+            "url":"https://ir.netflix.net/ir-overview/profile/default.aspx"
+        },
+        {
+            "id":6,
+            "title":"Jobs",
+            "url":"https://jobs.netflix.com/"
+        },
+        {
+            "id":7,
+            "title":"Ways to Watch",
+            "url":"https://devices.netflix.com/en/"
+        },
+        {
+            "id":8,
+            "title":"Term of Use",
+            "url":"https://help.netflix.com/legal/termsofuse"
+        },
+        {
+            "id":9,
+            "title":"Privacy",
+            "url":"https://help.netflix.com/legal/privacy"  
+        },
+        {
+            "id":10,
+            "title":"Cookie Preferences",
+            "url":"https://www.netflix.com/vn-en/#"
+        },
+        {
+            "id":11,
+            "title":"Corporate Information",
+            "url":"https://help.netflix.com/legal/corpinfo"
+        },
+        {
+            "id":12,
+            "title":"Contact Us",
+            "url":"https://help.netflix.com/vi/contactus"
+        },
+        {
+            "id":13,
+            "title":"Speedtest",
+            "url":"https://fast.com/"
+        },
+        {
+            "id":13,
+            "title":"Legal Notice",
+            "url":"https://help.netflix.com/legal/notices"
+        },
+        {
+            "id":14,
+            "title":"Netflix Originals",
+            "url":"https://www.netflix.com/vn-en/browse/genre/839338"
+        }
+        
+    ]
+}

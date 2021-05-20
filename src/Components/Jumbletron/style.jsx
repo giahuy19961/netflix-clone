@@ -6,7 +6,10 @@ export const Item = styled.div`
    padding:50px 5%;
    color:white;
    overflow:hidden;
-  
+   align-item:center;
+   @media (max-width:600px){
+       padding:40px 3%;
+   }
 
 `
 export const Inner = styled.section`
@@ -19,6 +22,8 @@ export const Inner = styled.section`
    width:100%;
    @media (max-width :1000px ){
        flex-direction:column;
+       align-items:center;
+    
    }
 
 `
@@ -28,20 +33,22 @@ export const Container = styled.div`
            margin-bottom:50px;
        }
    }
-
-
 `
 export const Pane = styled.div`
    width:50%;
-   display:flex;
-   flex-direction:column;
-   justify-content:center;
-
+   flex-direction: column;
+   display: flex;
+   justify-content: center;
+   @media (max-width:600px){
+       width:70%;
+   }
 `
 export const Title = styled.h1`
     font-size:50px;
     @media (max-width:600px){
-        font-size:35px;
+        font-size:25px;
+        text-align:center;
+    
     }
 `
 
@@ -51,6 +58,7 @@ export const Subtitle = styled.h2`
    line-height:normal;
    @media (max-width:600px){
        font-size:15px;
+       text-align:center;
    }
 `
 
