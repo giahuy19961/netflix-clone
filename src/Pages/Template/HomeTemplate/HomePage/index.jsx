@@ -5,8 +5,11 @@ import Rows from '../../../../Components/Rows'
 import requests from '../../../../request'
 import NavbarHeader from '../../../../Components/NavbarHome'
 import Modal from 'Components/Modal'
+import { useHistory } from 'react-router-dom'
+
 
 function HomePage() {
+    const history = useHistory()
     let [activeMovie,setActiveMovie] = useState({})
     let [loadingBanner,setLoading] = useState(false)
     const listItemNav = [{
@@ -23,7 +26,11 @@ function HomePage() {
     },
     {
         name:"Sign Out",
-        type:"button"
+        type:"button",
+        click:function handleClick(){
+            localStorage.clear()
+            history.push("/")
+        }
     },
 
     ]
@@ -49,8 +56,9 @@ function HomePage() {
         }
     }, [])
     
-
+    if(!localStorage.getItem("user")) history.push("/authhome")
     return (
+       
         <div >
             <NavbarHeader menuList={listItemNav}  />
             <Banner activeMovie={activeMovie}  renderMovie={renderMovie} loading = {loadingBanner}/>

@@ -18,7 +18,7 @@ function NavbarHeader({menuList}) {
     return menuList.map((item,index)=>{
         if(item.type === "button"){
           return(
-              <Button style={{textTransform:"none",marginRight:"20px",fontSize:"1rem"  }} size="medium" variant="contained" color="secondary" key={index}>{item.name}</Button>
+              <Button style={{textTransform:"none",marginRight:"20px",fontSize:"1rem"  }} onClick={()=>item.click()} size="medium" variant="contained" color="secondary" key={index}>{item.name}</Button>
           )
         } else{
           return (

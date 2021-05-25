@@ -1,6 +1,4 @@
 import './App.css';
-import HomePage from './Pages/Template/HomeTemplate/HomePage';
-import PreviewPage from 'Pages/Template/HomeTemplate/PreviewPage';
 import {BrowserRouter as Router,Switch,Route,Link} from 'react-router-dom';
 import {routeHome} from 'routes';
 
