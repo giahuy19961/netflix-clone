@@ -26,7 +26,7 @@ function PreviewPage() {
         <Jumbletron.Container>
             {Jumbledata.map((item,index)=>{
                 return (
-                    <Jumbletron direction={item.direction}>
+                    <Jumbletron key={index} direction={item.direction}>
                         <Jumbletron.Pane>
                              <Jumbletron.Title>{item.title}</Jumbletron.Title>
                              <Jumbletron.Subtitle>{item.subTitle}</Jumbletron.Subtitle>

@@ -38,6 +38,7 @@ export const IntroTitle = styled.p`
    overflow: hidden;
    text-overflow: ellipsis;
    color :#fff;
+   margin-bottom:20px;
    max-height:110px;
    @media (max-width:600px){
     font-size:1.2rem;
@@ -46,9 +47,8 @@ export const IntroTitle = styled.p`
 
 export const IntroButton = styled.button`
     padding:10px;
-    margin-top:10px;
-    width:150px;
-    height:50px;
+    width:160px;
+    height:60px;
     background-color:#fff;
     color :red;
     border-color: transparent;
@@ -60,6 +60,7 @@ export const IntroButton = styled.button`
         transform:scale(1.09) ;
         border-radius:5%;
         font-size:1.2rem
+        width:200px;
         
     }
 `
@@ -78,5 +79,22 @@ export const IntroContainerItem = styled.div`
 export const IntroContainerHeader = styled.h3`
      font-size:3rem;
      color:#fff;
+
+`
+export const InputWrap = styled.div`
+        min-width:500px;
+        height:60px;
+        display:flex;
+        justify-content:space-between;
+`
+export const IntroInput = styled.input`
+     width:80%;
+     height:100%;
+     padding:10px 30px;
+     color:#333;
+     font-size:1.5rem;
+     border-radius:5px;
+     border-color:#fff;
+     outline:none;
 
 `

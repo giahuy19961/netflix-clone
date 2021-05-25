@@ -18,9 +18,6 @@ function App() {
       <Switch>
         {renderRouteHome()}
       </Switch>
-      {/* <Introduction/>
-      <HomePage/> 
-       <PreviewPage/>*/}
     </Router>
   );
 }

@@ -35,6 +35,7 @@ export const Body = styled.p`
        line-height:normal;
        color:#000;
        padding:20px;
+       margin-bottom:0;
        @media (max-width:600px){
            font-size:1rem;
        }

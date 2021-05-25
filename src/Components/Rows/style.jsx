@@ -20,6 +20,7 @@ export const Image = styled.img`
     &:hover{
         transform:scale(1.08);
         opacity:1;
+        z-index:100;
     }
 `
 export const ImageLarge = styled.img`
@@ -32,6 +33,7 @@ export const ImageLarge = styled.img`
     &:hover{
         transform:scale(1.09);
         opacity:1;
+        z-index:100;
     }
 `
 export const List = styled.div`
