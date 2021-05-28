@@ -16,12 +16,11 @@ function PreviewPage() {
         type:"button",
         click:function handleClick(){
             history.push("/authhome")
-            
         }
     }]
     return (
         <>
-        <NavbarHeader menuList ={listItemNav}/>
+        <NavbarHeader buttonList={listItemNav} menuList={""}/>
         <BannerPreview/>
         <Jumbletron.Container>
             {Jumbledata.map((item,index)=>{

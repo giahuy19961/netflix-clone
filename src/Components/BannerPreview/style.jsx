@@ -57,10 +57,8 @@ export const IntroButton = styled.button`
     &:hover{
         background-color:red;
         color:#fff;
-        transform:scale(1.09) ;
-        border-radius:5%;
-        font-size:1.2rem
-        width:200px;
+        transform:scale(1.09);
+        font-size:1.3rem
         
     }
 `
@@ -92,7 +90,7 @@ export const IntroInput = styled.input`
      height:100%;
      padding:10px 30px;
      color:#333;
-     font-size:1.5rem;
+     font-size:1.6rem;
      border-radius:5px;
      border-color:#fff;
      outline:none;

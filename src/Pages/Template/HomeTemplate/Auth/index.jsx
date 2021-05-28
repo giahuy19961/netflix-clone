@@ -12,11 +12,9 @@ import { Container,FormErr } from './style'
 
 function AuthHome() {
     const history = useHistory()
-    const listItemNav = [{
+    const buttonList = [{
         name:"Sign Up",
-        type:"button",
         click:function(){
-
         }
     }]
     const [userName,setuserName]= useState("")
@@ -85,7 +83,7 @@ function AuthHome() {
     
     return (
         <AuthHome.Wrap>
-            <NavbarHeader style={{paddingRight:"20px"}} menuList ={listItemNav}/>
+            <NavbarHeader style={{paddingRight:"20px"}} menuList={""}     buttonList ={buttonList}/>
                 <AuthHome.Form onSubmit={handleSubmit}>
                     <AuthHome.Header>User Login</AuthHome.Header>
                     <AuthHome.Content>

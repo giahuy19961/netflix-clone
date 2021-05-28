@@ -14,13 +14,14 @@ function BannerPreview() {
                     here is my netflix title and Lorem ipsum dolor sit amet.
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, vitae?
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, iusto!
+                    
                 </IntroTitle>
                 {!input?
                 <IntroButton onClick={()=>setInput(true)}>
-                    Register  Email
+                     Register Email
                 </IntroButton>:<InputWrap>
                        <IntroInput placeholder="Type your email"/>
-                       <IntroButton>Join</IntroButton>
+                       <IntroButton>Start</IntroButton>
                     </InputWrap>}
             </IntroContent>
         </IntroWrap>

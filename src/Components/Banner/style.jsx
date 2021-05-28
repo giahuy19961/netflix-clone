@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link } from 'react-router-dom'
 
 
 export const BannerContent = styled.div`
@@ -25,11 +26,11 @@ export const BannerTitle= styled.p`
 `
 export const BannerWrap = styled.div`
      width:100%;
-     height:500px;
+     height:650px;
      padding-bottom:10px ;
      position:relative;
      background:url(${(props)=>`https://image.tmdb.org/t/p/original/${props.imgUrl}`}) no-repeat center center ;
-     background-size: 100% 500px;
+     background-size: 100% 100%;
 
 `
 export const BannerHeader = styled.p`
@@ -37,15 +38,18 @@ export const BannerHeader = styled.p`
   
     
 `
-export const BannerButton = styled.button`
+export const BannerButton = styled(Link)`
     width:100px;
+    display:block;
     height:35px;
     border-radius:5%;
     border : 1px solid #fff;
+    text-decoration:none;
     background-color:transparent;
     color : #fff;
     margin-right:10px;
     outline:none;
+    text-align:center;
     font-size:1rem;
     &:hover {
         background-color:#fff;

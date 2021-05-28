@@ -12,7 +12,7 @@ function HomePage() {
     const history = useHistory()
     let [activeMovie,setActiveMovie] = useState({})
     let [loadingBanner,setLoading] = useState(false)
-    const listItemNav = [{
+    const listMenu = [{
         name:"Home",
         type:"text"
     },
@@ -24,23 +24,20 @@ function HomePage() {
         name:"My List",
         type:"text"
     },
-    {
-        name:"Sign Out",
-        type:"button",
-        click:function handleClick(){
-            localStorage.clear()
-            history.push("/")
-        }
-    },
-
+    ]
+    const listButton = [{     
+            name:"Sign Out",
+            click:function handleClick(){
+                localStorage.clear()
+                history.push("/")
+            }
+        },
     ]
   
     const getActiveMovie = (item) =>{
+        console.log(item)
         setActiveMovie(item)
 
-    }
-    const renderMovie = (url) =>{
-        return <Modal trailer = {url}/>
     }
     useEffect(() => {
         const fetchActiveMovieDefault = async () =>{
@@ -58,10 +55,9 @@ function HomePage() {
     
     if(!localStorage.getItem("user")) history.push("/authhome")
     return (
-       
         <div >
-            <NavbarHeader menuList={listItemNav}  />
-            <Banner activeMovie={activeMovie}  renderMovie={renderMovie} loading = {loadingBanner}/>
+            <NavbarHeader menuList={listMenu} buttonList={listButton}  />
+            <Banner activeMovie={activeMovie}   loading = {loadingBanner}/>
             <Rows title="Netflix Original" urlNetflix={requests.fetchNetflixOriginals} getActiveMovie={getActiveMovie} isLarge={true}/>
             <Rows title="Top Rate" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchTopRated} isLarge={false}/>
             <Rows title="Action Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchActionMovies} isLarge={false}/>
@@ -69,7 +65,6 @@ function HomePage() {
             <Rows title="Horror Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchHorrorMovies} isLarge={false}/>
             <Rows title="Romance Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchRomanceMovie} isLarge={false}/>
             <Rows title="Documentaries" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchDocumentaries} isLarge={false}/>
-            {renderMovie()}
         </div>
     )
 }
