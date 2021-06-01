@@ -38,7 +38,7 @@ export const BannerHeader = styled.p`
   
     
 `
-export const BannerButton = styled(Link)`
+export const BannerButton = styled.button`
     width:100px;
     display:block;
     height:35px;

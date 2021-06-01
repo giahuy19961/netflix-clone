@@ -4,6 +4,7 @@ export const Wrap = styled.div`
    overflow:hidden;
    background-color:#000;
    color:#fff;
+   margin-bottom:30px;
 `
 export const Header = styled.div`
     font-size:2rem;
@@ -12,8 +13,9 @@ export const Header = styled.div`
 `
 
 export const Image = styled.img`
-    width:100%;
-    max-height:100px;
+    width:15%;
+    max-height:auto;
+    display:block;
     margin-right:10px;
     transition: transform .45s;
     object-fit:contain;
@@ -24,7 +26,7 @@ export const Image = styled.img`
     }
 `
 export const ImageLarge = styled.img`
-    width:100%;
+    max-width:100%;
     max-height:250px;
     position:relative;
     margin-right:10px;
@@ -39,12 +41,32 @@ export const ImageLarge = styled.img`
 export const List = styled.div`
     display:flex;
     justify-content:space-between;
-    overflow-x:scroll;
+    overflow-x:hidden;
     position:relative;
-    padding:20px;
-    &::-webkit-scrollbar {
-        display:none
+    margin:20px;
+    padding:10px;
+
+    &:hover{
+        overflow-x:scroll;
+        scrollbar-width: thin;
+       
     }
+    &::-webkit-scrollbar
+    {   
+        width: thin;
+        background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar-thumb
+    {
+        background-color: #333;
+        border: 1px solid #555555;
+    }
+    
 `
 // export const Item = styled.div`
 //      position:relative;

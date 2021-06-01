@@ -5,7 +5,7 @@ import React from 'react'
 import { BannerButton, BannerContent, BannerHeader, BannerTitle, BannerWrap } from './style'
 
 
-function Banner({activeMovie}) {
+function Banner({activeMovie,handleClick}) {
      // useEffect(() => {
     //     console.log(activeMovie)
     // }, [activeMovie])
@@ -37,7 +37,7 @@ function Banner({activeMovie}) {
                 <BannerHeader>{activeMovie.original_name?activeMovie.original_name:activeMovie.original_title}</BannerHeader>
                 <BannerTitle>{activeMovie.overview}</BannerTitle>
                 <div style={{display:"flex"}}>
-                <BannerButton to={`/show/${activeMovie.id}`}>
+                <BannerButton onClick={handleClick}>
                    Play
                 </BannerButton>
                  <BannerButton>

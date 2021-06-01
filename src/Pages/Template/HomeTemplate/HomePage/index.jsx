@@ -4,8 +4,7 @@ import Banner from '../../../../Components/Banner'
 import Rows from '../../../../Components/Rows'
 import requests from '../../../../request'
 import NavbarHeader from '../../../../Components/NavbarHome'
-import Modal from 'Components/Modal'
-import { useHistory } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 
 
 function HomePage() {
@@ -33,7 +32,9 @@ function HomePage() {
             }
         },
     ]
-  
+    const handleClick = ()=>{
+       history.push(`/show/${activeMovie.id}`)
+    }
     const getActiveMovie = (item) =>{
         console.log(item)
         setActiveMovie(item)
@@ -57,14 +58,14 @@ function HomePage() {
     return (
         <div >
             <NavbarHeader menuList={listMenu} buttonList={listButton}  />
-            <Banner activeMovie={activeMovie}   loading = {loadingBanner}/>
-            <Rows title="Netflix Original" urlNetflix={requests.fetchNetflixOriginals} getActiveMovie={getActiveMovie} isLarge={true}/>
-            <Rows title="Top Rate" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchTopRated} isLarge={false}/>
-            <Rows title="Action Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchActionMovies} isLarge={false}/>
-            <Rows title="Comedy Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchComedyMovies} isLarge={false}/>
-            <Rows title="Horror Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchHorrorMovies} isLarge={false}/>
-            <Rows title="Romance Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchRomanceMovie} isLarge={false}/>
-            <Rows title="Documentaries" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchDocumentaries} isLarge={false}/>
+            <Banner activeMovie={activeMovie} handleClick={handleClick}  loading = {loadingBanner}/>
+            <Rows title="Netflix Original" urlNetflix={requests.fetchNetflixOriginals} getActiveMovie={getActiveMovie} isLarge={true} player={true}/>
+            <Rows title="Top Rate" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchTopRated} isLarge={false} player={true}/>
+            <Rows title="Action Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchActionMovies} isLarge={false} player={true}/>
+            <Rows title="Comedy Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchComedyMovies} isLarge={false} player={true}/>
+            <Rows title="Horror Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchHorrorMovies} isLarge={false} player={true}/>
+            <Rows title="Romance Movies" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchRomanceMovie} isLarge={false} player={true}/>
+            <Rows title="Documentaries" getActiveMovie={getActiveMovie} urlNetflix={requests.fetchDocumentaries} isLarge={false} player={true}/>
         </div>
     )
 }

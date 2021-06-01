@@ -4,7 +4,7 @@ import axios from 'axios'
 import {requestsById} from '../../request'
 import Trailer from '../Trailer'
 
-function Rows({title,urlNetflix,isLarge,getActiveMovie}) {
+function Rows({title,urlNetflix,isLarge,getActiveMovie,player}) {
     let [movie,setMovie]= useState([])
     let [trailer,setTrailer] = useState("")
     let [url,setUrl] = useState(null)
@@ -65,10 +65,10 @@ function Rows({title,urlNetflix,isLarge,getActiveMovie}) {
         <List className="listMovie_list" > 
             {renderListMovie()}
         </List>
-        <TrailerContainer>
+        {player?<TrailerContainer>
             {/* <TrailerMedia/> */}
             {url !== null && trailer ?<Trailer url={url}/>:<></>}
-        </TrailerContainer>
+        </TrailerContainer>:""}
         </Wrap>
     )
 }
