@@ -6,22 +6,21 @@ import Footer from 'Components/Footer';
 import NavbarHeader from 'Components/NavbarHome';
 import Rows from 'Components/Rows';
 import React from 'react'
-// import {useHistory} from 'react-router-dom'
 import { useEffect,useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
 
 // https://api.themoviedb.org/3/movie/238/similar?api_key=6a9afadf143aca82889205eeff258c22&language=en-US&page=1
 
 function ShowPage(props) {
     const history = useHistory()
+    const myList = useSelector(state => state.myListReducer.list)
     let [activeMovie,setActiveMovie] = useState({})
     const {match:{params}} = props
     const [detail,setDetail] = useState(null);
     const getActiveMovie = (item) =>{
-        console.log(item)
         setActiveMovie(item)
-
     }
     const [err,setErr] = useState(false)
     const listMenu = [{
@@ -78,7 +77,7 @@ function ShowPage(props) {
             axios({
                 url:`https://api.themoviedb.org/3/movie/${activeMovie.id}?api_key=6a9afadf143aca82889205eeff258c22&language=en-US`,
                 method:"GET"
-            }).then((res)=>{
+            }).then((res)=>{ 
                 setDetail(res.data)         
             }).catch((err)=>{
                 console.log(err)
@@ -94,7 +93,8 @@ function ShowPage(props) {
                <NavbarHeader buttonList={listButton}  menuList={listMenu}/>
                <Banner activeMovie={detail} handleClick={handleClick}/>
                <DetailShow detail={detail}/>
-               <Rows title="Relative Movie" urlNetflix={`/movie/${params.id}/similar?api_key=6a9afadf143aca82889205eeff258c22&language=en-US&page=1`} getActiveMovie={getActiveMovie} isLarge={false} player={false}/>
+               <Rows title="Relative Movie" urlNetflix={`/movie/${detail.id}/similar?api_key=6a9afadf143aca82889205eeff258c22&language=en-US&page=1`}  getActiveMovie={getActiveMovie} isLarge={false} player={false}/>
+               <Rows title="My list"  getActiveMovie={getActiveMovie} isLarge={false} isMyList={true} myList={myList} player={false}/>
                <Footer/>
             </>
         )

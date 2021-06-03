@@ -4,7 +4,7 @@ import axios from 'axios'
 import {requestsById} from '../../request'
 import Trailer from '../Trailer'
 
-function Rows({title,urlNetflix,isLarge,getActiveMovie,player}) {
+function Rows({title,urlNetflix,isLarge,getActiveMovie,player,isMyList,myList}) {
     let [movie,setMovie]= useState([])
     let [trailer,setTrailer] = useState("")
     let [url,setUrl] = useState(null)
@@ -19,15 +19,27 @@ function Rows({title,urlNetflix,isLarge,getActiveMovie,player}) {
         
     }
     const renderListMovie = ()=>{
-        return movie?.map((item,index)=>{
-            if(isLarge){
-                return (
-                         <ImageLarge key={index} type="button" onClick={()=>handleClick(item)} className="listMovie_item" src={`${url_img}${item.backdrop_path}`} alt={item.name}/>
+        if(isMyList && myList){
+            return myList?.map((item,index)=>{
+                if(isLarge){
+                    return (
+                             <ImageLarge key={index} type="button" onClick={()=>handleClick(item)} className="listMovie_item" src={`${url_img}${item.backdrop_path}`} alt={item.name}/>
+        
+                        )}
+                  return  <Image key={index} onClick={()=>handleClick(item)}  className="listMovie_item" src={`${url_img}${item.backdrop_path}`} alt={item.name}/>
     
-                    )}
-              return  <Image key={index} onClick={()=>handleClick(item)}  className="listMovie_item" src={`${url_img}${item.backdrop_path}`} alt={item.name}/>
-
-        })
+            })
+        } else{
+            return movie?.map((item,index)=>{
+                if(isLarge){
+                    return (
+                             <ImageLarge key={index} type="button" onClick={()=>handleClick(item)} className="listMovie_item" src={`${url_img}${item.backdrop_path}`} alt={item.name}/>
+        
+                        )}
+                  return  <Image key={index} onClick={()=>handleClick(item)}  className="listMovie_item" src={`${url_img}${item.backdrop_path}`} alt={item.name}/>
+    
+            })
+        }
     }
   
     useEffect(() => {
@@ -46,7 +58,7 @@ function Rows({title,urlNetflix,isLarge,getActiveMovie,player}) {
         fetchTrailer()
     }, [trailer])
     useEffect(()=>{
-       const fetchUrlMovie = () =>{
+       const fetchUrlMovie =async () =>{
            axios({
                url:`https://api.themoviedb.org/3${urlNetflix}`,
                method:"GET"
@@ -59,6 +71,7 @@ function Rows({title,urlNetflix,isLarge,getActiveMovie,player}) {
        }
        fetchUrlMovie()
     },[])
+
     return (
         <Wrap>
         <Header className="listMovie_title">{title}</Header>

@@ -4,7 +4,7 @@ import Banner from '../../../../Components/Banner'
 import Rows from '../../../../Components/Rows'
 import requests from '../../../../request'
 import NavbarHeader from '../../../../Components/NavbarHome'
-import { Redirect, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 
 function HomePage() {

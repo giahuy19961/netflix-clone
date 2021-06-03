@@ -11,6 +11,7 @@ export const BannerContent = styled.div`
     max-width:50%;
     padding:5%;
     font-weight:700;
+    // background:linear-gradient(to bottom,rgba(0,0,0,.1) 1%,rgba(0,0,0,0));
     
 `
 export const BannerTitle= styled.p`
@@ -39,20 +40,40 @@ export const BannerHeader = styled.p`
     
 `
 export const BannerButton = styled.button`
-    width:100px;
+    min-width:100px;
     display:block;
+    padding:0 20px;
+    text-align:center;
     height:35px;
     border-radius:5%;
     border : 1px solid #fff;
     text-decoration:none;
-    background-color:transparent;
-    color : #fff;
+    background-color:#grey;
+    color : #000;
     margin-right:10px;
     outline:none;
     text-align:center;
     font-size:1rem;
     &:hover {
-        background-color:#fff;
-        color:#000
+        background-color:#333;
+        color:#fff;
+    }
+    &:disabled{
+        background-color:#333;
+        color:#fff;
     }
 `
+// export const ButtonDisabled = styled.button`
+// width:100px;
+// display:block;
+// height:35px;
+// border-radius:5%;
+// border : 1px solid #fff;
+// text-decoration:none;
+// background-color:#fff;
+// color : #000;
+// margin-right:10px;
+// outline:none;
+// text-align:center;
+// font-size:1rem;
+// `

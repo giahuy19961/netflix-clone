@@ -49,6 +49,7 @@ function NavbarHeader({menuList,buttonList}) {
       switch (action) {
         case "logout":
           localStorage.clear();
+          history.push("/")
           break;
         case "profile":
           history.push("/profile")
@@ -92,9 +93,11 @@ function NavbarHeader({menuList,buttonList}) {
     return (
         <NavWrap background={isChange?{
           backgroundColor:"#000",
+          backgroundImage:false,
           color:"#fff"
         }:{
-          backgroundColor:"transparent",
+          backgroundImage:"linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));",
+          backgroundColor:false,
           color:"#fff"
       }} >
             <NavLogoLink to={user?"/home":"/"}>

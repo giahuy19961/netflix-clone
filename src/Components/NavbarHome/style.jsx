@@ -9,7 +9,8 @@ export const NavWrap = styled.div`
     top:0;
     left:0;
     z-index:999;
-    background-color:${props=>props.background.backgroundColor};
+    background-image:${props=>props.background.backgroundImage?props.background.backgroundImage:"transparent"};
+    background-color:${props=>props.background.backgroundColor?props.background.backgroundColor:"transparent"};
     color:${props=>props.background.color};
     display:flex;
     align-items:center;
@@ -51,6 +52,8 @@ export  const NavItem = styled.li`
    list-style:none;
    font-size:1.2rem;
    align-self:center;
+//    color:red;
+   font-weight:1.5rem;
    @media (max-width:830px){
        margin-right:20px;
    }
